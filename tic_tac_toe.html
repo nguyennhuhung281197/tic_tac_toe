@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id=cocaro></p>
+<input type="button" value="change value" onclick="chay()">
+</body>
+</html>
+<script>
+    let a = document.getElementById("cocaro");
+    let b = [];
+    let data = "";
+    let h = 1 ;
+    for (let i = 0; i < 5; i++) {
+        b[i] = new Array("(.)", "(.)", "(.)", "(.)", "(.)")
+    }
+    for (let i = 0; i < 5; i++) {
+        data += "<br>";
+        for (let j = 0; j < 5; j++) {
+            data += b[i][j] + "&nbsp" + "&nbsp";
+        }
+    }
+    a.innerHTML = data
+
+    function chay() {
+        let x = parseInt(prompt("nhap x vao"));
+        let y = parseInt(prompt("nhap y vao"));
+        data = "";
+       if (h % 2 === 0 ){
+            b[x][y] = "x"
+       }else {
+           b[x][y] = "0"
+       }h++
+
+        for (let i = 0; i < 5; i++) {
+            data += "<br>";
+            for (let j = 0; j < 5; j++) {
+                data += b[i][j] + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp";
+            }
+        }
+        a.innerHTML = data
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                if (b[i][j] === "x" && b[i][j + 1] === "x" && b[i][j + 2] === "x" ||
+                    b[i][j] === "x" && b[i + 1][j] === "x" && b[i + 2][j] === "x") {
+                    alert("x Win");
+
+                } else if (b[i][j] === "0" && b[i][j + 1] === "0" && b[i][j + 2] === "0" ||
+                    b[i][j] === "0" && b[i + 1][j] === "0" && b[i + 2][j] === "0") {
+                    alert("0 Win")
+                }
+            }
+        }
+    }
+
+
+</script>
